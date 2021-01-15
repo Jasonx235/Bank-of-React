@@ -12,6 +12,7 @@ class UserProfile extends Component {
                 <AccountBalance accountBalance={this.props.accountBalance} debitTotal={this.props.debitTotal} creditTotal={this.props.creditTotal}/>
                 <Link to="/">Home</Link>
                 <div>{this.props.user.loggedIn ? <Link to="/debits">Debits</Link> : ""}</div>
+                <div>{this.props.user.loggedIn ? <Link to="/credit">Credit</Link> : ""}</div>
             </div>
         )
     }

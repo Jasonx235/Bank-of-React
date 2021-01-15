@@ -5,6 +5,7 @@ import Home from './components/Home';
 import UserProfile from './components/UserProfile';
 import SignIn from './components/SignIn';
 import Debits from './components/Debits';
+import Credit from './components/Credit';
 import axios from 'axios';
 import {v4 as uuid} from 'uuid';
 
@@ -13,7 +14,7 @@ class App extends React.Component {
     super();
 
     this.state ={
-      accountBalance: 1232134.12,
+      accountBalance: 144488.67,
       currentUser: {
         userName: 'bob_loblaw',
         memberSince: '08/23/99',
@@ -81,6 +82,17 @@ class App extends React.Component {
 
   //Add Credit item
   addCredit = (credit) =>{
+    credit.id = uuid();
+    let date = new Date();
+    credit.date = date.toISOString();
+    
+    const newCredit = [credit, ...this.state.credit];
+    let creditTotal = 0;
+    for(let i =0; i< newCredit.length; i++){
+      creditTotal+=newCredit[i].amount;
+    }
+    creditTotal = Math.round((creditTotal + Number.EPSILON) * 100) / 100
+    this.setState({credit: newCredit, creditTotal: creditTotal})
   }
 
   LogIn = (Info) =>{
@@ -95,6 +107,7 @@ class App extends React.Component {
     const UserProfileComponent = () => (<UserProfile  user={this.state.currentUser} memberSince={this.state.currentUser.memberSince} accountBalance={this.state.accountBalance} debitTotal={this.state.debitTotal} creditTotal={this.state.creditTotal}/>)
     const SignInComponent = () => (<SignIn user={this.state.currentUser} LogIn={this.LogIn} {...this.props} />)
     const DebitsComponent = () => (<Debits accountBalance={this.state.accountBalance}  user={this.state.currentUser} debits={this.state.debits} addDebit={this.addDebit} debitTotal={this.state.debitTotal} creditTotal={this.state.creditTotal}/>)
+    const CreditComponent = () => (<Credit accountBalance={this.state.accountBalance}  user={this.state.currentUser} credit={this.state.credit} addCredit={this.addCredit} debitTotal={this.state.debitTotal} creditTotal={this.state.creditTotal}/>)
     return (
       <Router>
       <div className="App">
@@ -103,6 +116,7 @@ class App extends React.Component {
         <Route exact path = "/login" render={SignInComponent}/>
         <Route exact path = "/userProfile" render={UserProfileComponent}/>
         <Route exact path ="/debits" render={DebitsComponent} />
+        <Route exact path ="/credit" render={CreditComponent} />
         </Switch>
       </div>
       </Router>
