@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 
 class AccountBalance extends Component {
+    
     render() {
+        let accountBalance = this.props.accountBalance;
+        let debitTotal = this.props.debitTotal; 
+
         return (
             <div>
-                Balance: {this.props.accountBalance}
+                Balance: ${Math.round(((accountBalance-debitTotal) + Number.EPSILON) * 100) / 100}
             </div>
         )
     }

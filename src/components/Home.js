@@ -5,13 +5,13 @@ import {Link} from 'react-router-dom';
 class Home extends Component {
     render() {
         return (
-            <div>
+            <div className="container">
+                <img src="bank.jpg" alt="bankimage" className="logo"/>
                 <h1>Bank of React</h1>
-
-                <AccountBalance accountBalance={this.props.accountBalance}/>
-
-                <Link to="/userProfile">UserProfile</Link>
-                <Link to="/login">Login</Link>
+                <div>{this.props.user.loggedIn ? <AccountBalance accountBalance={this.props.accountBalance} debitTotal={this.props.debitTotal} /> : ""}</div>
+                <div>{this.props.user.loggedIn ? <Link to="/userProfile">UserProfile</Link> : <Link to="/login">Login</Link>}
+                </div>
+                <div>{this.props.user.loggedIn ? <Link to="/debits">Debits</Link> : ""}</div>
             </div>
         )
     }

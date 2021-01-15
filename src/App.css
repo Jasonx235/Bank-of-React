@@ -1,0 +1,40 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.logo{
+    width: 20%;
+    height: 20%;
+}
+
+
+/* Dept container */
+
+.debitContainer{
+    display:flex;
+    flex-direction: column;
+
+}
+
+.DebitItem{
+    color:black;
+    text-align: left;
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}

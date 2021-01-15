@@ -19,7 +19,6 @@ class SignIn extends Component {
         const inputField = e.target.name;
         const inputValue = e.target.value;
         updatedUser[inputField] = inputValue;
-
         this.setState({user: updatedUser});
     }
 
@@ -36,7 +35,7 @@ class SignIn extends Component {
             return (<Redirect to="/userProfile"/>)
         }
         return (
-            <div>
+            <div className="container">
             <form onSubmit={this.handleSubmit}>
                 <div>
                     <label htmlFor="userName">Username</label>
