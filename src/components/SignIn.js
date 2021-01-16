@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 class SignIn extends Component {
     constructor(){
@@ -35,18 +35,24 @@ class SignIn extends Component {
             return (<Redirect to="/userProfile"/>)
         }
         return (
-            <div className="container">
+            <div className="container marginHelper">
+            <div className="signInCon">
+            <Link to="/">
+            <img src="bank.jpg" alt="bankimage" className="logo"/>
+            </Link> 
+            <h1 className="marginHelperSmall">Sign In</h1>
             <form onSubmit={this.handleSubmit}>
-                <div>
-                    <label htmlFor="userName">Username</label>
+                <div className="marginHelperSmall">
+                    <label htmlFor="userName">Username </label>
                     <input type="text" name="userName" onChange={this.handleChange} value={this.state.user.userName} />
                 </div>
-                <div>
-                    <label htmlFor="password">Password</label>
+                <div className="marginHelperSmall">
+                    <label htmlFor="password">Password </label>
                     <input type="password" name="password"/>
                 </div>
                 <button>Log In</button>
             </form>
+            </div>
 
             </div>
         )

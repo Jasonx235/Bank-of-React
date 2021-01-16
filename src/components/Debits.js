@@ -47,9 +47,13 @@ class Debits extends Component {
     render() {
         return (
             <div className="container">
+                <Link to="/">
+                <img src="bank.jpg" alt="bankimage" className="logo"/>
+                </Link> 
                 <h1>Debits</h1>
-                <Link to="/">Home</Link>
-                <Link to="/userProfile">User Profile</Link>
+                <div className="linkContainer">
+                <Link className="linkItem" to="/userProfile">User Profile</Link>
+                </div>
                 <AccountBalance accountBalance={this.props.accountBalance} debitTotal={this.props.debitTotal} creditTotal={this.props.creditTotal}/>
                 <p>Add Purchase</p>
                 <form onSubmit={this.handleSubmit}>

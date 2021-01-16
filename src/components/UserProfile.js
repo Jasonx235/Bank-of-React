@@ -6,13 +6,17 @@ class UserProfile extends Component {
     render() {
         return (
             <div className="container">
+                <Link to="/">
+                <img src="bank.jpg" alt="bankimage" className="logo"/>
+                </Link> 
                 <h1>User Profile</h1>
-                <div>Username: {this.props.userName}</div>
+                <div className="marginHelperSmall">Username: {this.props.user.userName}</div>
                 <div>Member Since: {this.props.memberSince}</div>
-                <AccountBalance accountBalance={this.props.accountBalance} debitTotal={this.props.debitTotal} creditTotal={this.props.creditTotal}/>
-                <Link to="/">Home</Link>
-                <div>{this.props.user.loggedIn ? <Link to="/debits">Debits</Link> : ""}</div>
-                <div>{this.props.user.loggedIn ? <Link to="/credit">Credit</Link> : ""}</div>
+                <AccountBalance className="marginHelperSmall" accountBalance={this.props.accountBalance} debitTotal={this.props.debitTotal} creditTotal={this.props.creditTotal}/>
+                <div className="linkContainer marginHelperSmall">
+                <div>{this.props.user.loggedIn ? <Link className="linkItem" to="/debits">Debits</Link> : ""}</div>
+                <div>{this.props.user.loggedIn ? <Link  className="linkItem"to="/credit">Credit</Link> : ""}</div>
+                </div>
             </div>
         )
     }

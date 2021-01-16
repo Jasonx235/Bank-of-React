@@ -4,7 +4,7 @@ import "./../App.css"
 class CreditItem extends Component {
     render() {
         return (
-            <div className="DebitItem">
+            <div className="CreditItem">
                 <u>Description</u>: {this.props.credit.description}
                 <br/>
                 <u>Amount</u>: {this.props.credit.amount}
