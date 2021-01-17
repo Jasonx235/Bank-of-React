@@ -14,7 +14,7 @@ class App extends React.Component {
     super();
 
     this.state ={
-      accountBalance: 144488.67,
+      accountBalance: 0,
       currentUser: {
         userName: 'bob_loblaw',
         memberSince: '08/23/99',
